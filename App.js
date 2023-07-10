@@ -22,10 +22,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   inputContainer: {
+    flex: 1,
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
-    marginBottom: 20,
+    margin: 20,
   },
   textInput: {
     borderWidth: 1,
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   goalContainer: {
-    flex:3,
+    flex:5,
     marginTop: 20,
     padding: 10,
     backgroundColor: "#841584",
@@ -47,5 +48,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
+    textAlign: "center",
   },
 });
