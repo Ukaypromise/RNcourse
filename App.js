@@ -2,16 +2,16 @@ import { StyleSheet, Text, View, Button, TextInput } from "react-native";
 import { useState } from "react";
 
 export default function App() {
-const [goal, setGoal]= useState('')
-
+  const [goal, setGoal] = useState("");
+  const [listGoal, setListGoal] = useState([]);
 
   function goalInputHandler(enteredText) {
     setGoal(enteredText);
   }
 
   function addGoalHandler(e) {
-    e.preventDefault();
-    console.log(goal);
+    setListGoal((currentGoals) => [...currentGoals, goal]);
+    setGoal("");
   }
   return (
     <View style={styles.appContainer}>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   goalContainer: {
-    flex:5,
+    flex: 5,
     marginTop: 20,
     padding: 10,
     backgroundColor: "#841584",
