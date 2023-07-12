@@ -2,16 +2,16 @@ import { StyleSheet, Text, View, Button, TextInput } from "react-native";
 import { useState } from "react";
 
 export default function App() {
-  const [goal, setGoal] = useState("");
+  const [goals, setGoals] = useState("");
   const [listGoal, setListGoal] = useState([]);
 
   function goalInputHandler(enteredText) {
-    setGoal(enteredText);
+    setGoals(enteredText);
   }
 
   function addGoalHandler(e) {
-    setListGoal((currentGoals) => [...currentGoals, goal]);
-    setGoal("");
+    setListGoal((currentGoals) => [...currentGoals, goals]);
+    setGoals("");
   }
   return (
     <View style={styles.appContainer}>
@@ -23,8 +23,13 @@ export default function App() {
         />
         <Button title="Add Goal" color="#841584" onPress={addGoalHandler} />
       </View>
+      <Text style={styles.goalText}>List of Goals</Text>
       <View style={styles.goalContainer}>
-        <Text style={styles.goalText}>List of Goals</Text>
+        {listGoal.map((goal) => (
+          <View style={styles.goalItemText} key={goal}>
+            <Text style={styles.goalItem}>{goal}</Text>
+          </View>
+        ))}
       </View>
     </View>
   );
@@ -61,9 +66,18 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   goalText: {
-    color: "#fff",
-    fontSize: 18,
+    color: "#841584",
+    fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
+  },
+  goalItemText: {
+    margin: 8,
+    padding: 10,
+    backgroundColor: "#F5FCFF",
+    borderRadius: 5,
+  },
+  goalItem: {
+    color: "#841584",
   },
 });
