@@ -1,13 +1,13 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-const GoalItem = () => {
+const GoalItem = ({ itemData }) => {
   return (
     <View style={styles.goalItemText}>
       <Text style={styles.goalItem}>{itemData.item.text}</Text>
     </View>
   );
-}
+};
 
 export default GoalItem
 

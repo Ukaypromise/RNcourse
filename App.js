@@ -4,7 +4,6 @@ import {
   View,
   Button,
   TextInput,
-  ScrollView,
   FlatList,
 } from "react-native";
 import GoalItem from "./components/GoalItem";
