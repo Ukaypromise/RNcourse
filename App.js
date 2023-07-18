@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import { StyleSheet, Text, View, Button, TextInput, ScrollView } from "react-native";
 import { useState } from "react";
 
 export default function App() {
@@ -25,11 +25,13 @@ export default function App() {
       </View>
       <Text style={styles.goalText}>List of Goals</Text>
       <View style={styles.goalContainer}>
-        {listGoal.map((goal) => (
-          <View style={styles.goalItemText} key={goal}>
-            <Text style={styles.goalItem}>{goal}</Text>
-          </View>
-        ))}
+        <ScrollView>
+          {listGoal.map((goal) => (
+            <View style={styles.goalItemText} key={goal}>
+              <Text style={styles.goalItem}>{goal}</Text>
+            </View>
+          ))}
+        </ScrollView>
       </View>
     </View>
   );
