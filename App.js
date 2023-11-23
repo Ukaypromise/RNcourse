@@ -11,16 +11,18 @@ import GoalInput from "./components/GoalInput";
 import { useState } from "react";
 
 export default function App() {
-  const [goals, setGoals] = useState("");
-  const [listGoal, setListGoal] = useState([]);
+  const [enteredGoalText, SetenteredGoalText] = useState("");
+  const [courseGoal, setCourseGoals] = useState([]);
 
   function goalInputHandler(enteredText) {
-    setGoals({ text: enteredText, id: Math.random().toString() });
+    SetenteredGoalText(enteredText);
   }
 
   function addGoalHandler(e) {
-    setListGoal((currentGoals) => [...currentGoals, goals]);
-    setGoals("");
+    setCourseGoals((currentCourseGoals) => [
+      ...currentCourseGoals,
+      { text: enteredGoalText, id: Math.random().toString() },
+    ]);
   }
   return (
     <View style={styles.appContainer}>
@@ -31,7 +33,7 @@ export default function App() {
       <Text style={styles.goalText}>List of Goals</Text>
       <View style={styles.goalContainer}>
         <FlatList
-          data={listGoal}
+          data={courseGoal}
           renderItem={(itemData) => {
             return <GoalItem itemData={itemData} />;
           }}
